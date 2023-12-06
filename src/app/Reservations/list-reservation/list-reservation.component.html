@@ -1,0 +1,206 @@
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Company name</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    
+  </nav>
+  
+  
+    <div class="row">
+    
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Liste de Reservation</h1>
+
+         <div>
+            
+        <!-- Button trigger modal -->
+  <button type="button"  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Add Reservation
+  </button>
+         </div>
+        </div>
+    </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="w3-main ">
+  
+            <div class="container">
+        
+               
+                <form  >
+                    <!-- firstName validation start here -->
+                    <div class="form-group">
+        
+                        <label for="exampleFormControlInput1">NbreJour</label>
+                        <input  type="number" class="form-control" placeholder="nbreJour" required name="nbreJour" formControlName="nbreJour" ngModel required >
+                    </div>
+                   
+                    
+                    <!-- lastName validation end here -->
+        
+                    <!-- lastName validation start here -->
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Hotel</label>
+                        <input type="text" class="form-control" formControlName="hotel" placeholder="hotel" required name="hotel" ngModel  >
+                    </div>
+                    
+                   
+        
+                    <!-- lastName validation start here -->
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Voiture</label>
+                        <input type="text" class="form-control" formControlName="voiture" placeholder="voiture" required name="voiture"  ngModel>
+                    </div>
+                    
+                   
+                    <!-- lastName validation end here -->
+        
+        
+                    <!-- prix validation start here -->
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Voyage</label>
+                        <input type="text" class="form-control" placeholder="voyage" required formControlName="voyage" name="voyage" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Total</label>
+                        <input type="number" class="form-control" placeholder="total" required formControlName="total" name="total" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Date</label>
+                        <input type="date" class="form-control" placeholder="date" required formControlName="date" name="date" ngModel>
+                    </div>
+                    
+                    
+                    <!-- prix validation end here -->
+        
+        
+                    <!-- image validation start here -->
+        
+                    <div class="form-group">
+                        <label>image</label>
+                        <input type="file" (change)="onFileSelected($event)"  class="form-control "  laceholder="image" required name="image" formControlName="image"   ngModel>
+        
+                    </div>
+                   
+                    <!-- Phone validation end here -->
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" >Close</button> 
+                        <button class="btn btn-primary"  routerLink="/ListReservations">Add reservation</button>
+                    </div>
+                </form>
+        
+        
+        
+        
+            </div>
+        
+        
+        
+        </div>
+        </div>
+     
+      </div>
+    </div>
+  </div>
+<!---->
+ 
+ 
+<!---->
+<div>
+    <h1>Nos Hotels</h1>
+   
+</div>
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+    <div class="container-fluid">
+        <!-- Page Header Start -->
+        <div class="page-header mb-0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 style="color:rgb(249, 247, 247);">Nos Reservation</h1>
+                    </div>
+                    <div class="col-12">
+                        <a href="" style="color:rgb(249, 247, 247);">Home</a>
+                        <a href="" style="color:rgb(249, 247, 247);">Reservations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page Header End -->
+        <br><br>
+        <!-- Page Heading -->
+
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">All Hotels</h6>
+            </div>
+
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Hotel</th>
+                                <th>Voiture</th>
+                                <th>Voyage</th>
+                                <th>NbreJour</th>
+                                <th>Date</th>
+                                <th>Prix</th>
+                                <th>image</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr *ngFor="let item of ListReservations;index as i">
+                                <td>{{item.hotel}}</td>
+                                <td>{{item.voiture}}</td>
+                                <td>{{item.voyage}}</td>
+                                <td>{{item.nbreJour}}</td>
+                                <td>{{item.date}}</td>
+                                
+                                <td>{{item.prix}}</td>
+                                <td>
+                                    <img  width="100px" height="100px" [src]="'http://127.0.0.1:3000/getimage/'+item.image" alt="">
+                                </td>
+
+                                <td>
+                                   
+                                    <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal1"(click)="details(item._id)"> Details</button>
+                                    <button class="btn btn-danger" (click)="delete(item._id,i)">Delete</button>
+                                </td>
+                            </tr>
+
+                            
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Modifier Hotel</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+         
+        </div>
+    </div>
+  
+    

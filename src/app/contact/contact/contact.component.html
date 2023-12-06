@@ -1,0 +1,90 @@
+
+ 
+ <br>
+
+
+
+ <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <br>
+
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+    <div class="container-fluid">
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">All Contacts</h6>
+                
+            </div>
+
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Email</th>
+                                <th>Message</th>
+                                <th>Telephone</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr *ngFor="let item of ListContacts;index as i">
+                                <td>{{item.nom}}</td>
+                                <td>{{item.email}}</td>
+                                <td>{{item.message}}</td>
+                                <td>{{item.telephone}}</td>
+                                
+
+                                <td>
+                                   
+                                    <button class="btn btn-danger" (click)="delete(item._id,i)"  data-toggle="tooltip" title="" data-confirm="Are You Sure?|This action can not be undone. Do you want to continue?">Delete</button>
+                                </td>
+                            </tr>
+
+                            
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    
+    
+  
