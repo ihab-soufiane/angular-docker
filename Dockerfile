@@ -1,5 +1,5 @@
 # Utilisez une image parent officielle Node.js
-FROM node:18
+FROM node:16
 
 # Définissez le répertoire de travail dans le conteneur
 WORKDIR /usr/src/app
